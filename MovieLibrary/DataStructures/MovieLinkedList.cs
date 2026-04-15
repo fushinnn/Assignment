@@ -1,6 +1,5 @@
 using MovieLibrary.Models;
 using System.Collections.Generic;
-using System.Windows.Controls;
 
 namespace MovieLibrary.DataStructures
 {
@@ -53,6 +52,29 @@ namespace MovieLibrary.DataStructures
                 current = current.Next;
             }
             return false;
+        }
+
+
+        public List<Movie> ToList()
+        {
+            var list = new List<Movie>();
+            var current = _head;
+
+            while (current != null)
+            {
+                list.Add(current.Data);
+                current = current.Next;
+            }
+
+            return list;
+        }
+
+
+        public void ReplaceAll(List<Movie> movies)
+        {
+            _head = null;
+            Count = 0;
+            foreach (var m in movies) Add(m);
         }
 
     }
