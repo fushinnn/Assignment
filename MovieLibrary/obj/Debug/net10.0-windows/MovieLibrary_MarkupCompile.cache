@@ -1,5 +1,5 @@
 ﻿MovieLibrary
-
+1.0.0.0
 
 winexe
 C#
@@ -12,7 +12,7 @@ TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_O
 C:\Users\Loren\Desktop\Assignment VS WPF\MovieLibrary\App.xaml
 11407045341
 
-101488376684
+121955508615
 2061815282281
 MainWindow.xaml;
 
