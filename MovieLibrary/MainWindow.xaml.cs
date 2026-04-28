@@ -2,6 +2,7 @@
 using MovieLibrary.Services;
 using System.Collections.Generic;
 using System.Windows;
+using MovieLibrary.Services;
 
 namespace MovieLibrary
 {
@@ -158,6 +159,28 @@ namespace MovieLibrary
         private void MovieGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
+        }
+
+
+        // ------File Import / Export------
+        private void BtnExport_Click(object sender, RoutedEventArgs e)
+        {
+            FileService.ExportMovies(_service.GetAllMovies());
+            SetStatus("Movie list exported.");
+        }
+
+        private void BtnImport_Click(object sender, RoutedEventArgs e)
+        {
+            var movies = FileService.ImportMovies();
+            if (movies == null) { 
+                SetStatus("Import cancelled or file not found."); 
+                return; }
+
+            foreach (var movie in movies)
+                _service.AddMovie(movie);
+
+            RefreshGrid(_service.GetAllMovies());
+            SetStatus($"Imported {movies.Count} movies.");
         }
     }
 }

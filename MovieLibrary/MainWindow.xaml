@@ -1,7 +1,7 @@
 ﻿<Window x:Class="MovieLibrary.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Movie Library" Height="600" Width="900"
+        Title="Movie Library" Height="700" Width="900"
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
@@ -72,6 +72,10 @@
             <Button Content="Return Movie" Click="BtnReturn_Click"/>
             <Button Content="Remove Movie" Click="BtnRemove_Click"/>
 
+            <TextBlock Text="Files" FontWeight="Bold" Margin="4,12,4,2"/>
+            <Button Content="Export Movies" Click="BtnExport_Click"/>
+            <Button Content="Import Movies" Click="BtnImport_Click"/>
+
         </StackPanel>
 
         <!-- CENTRE / RIGHT SECTION: Movie Navigation -->
@@ -80,7 +84,7 @@
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
                   SelectionMode="Single"
-                  GridLinesVisibility="Horizontal" Width="700" SelectionChanged="MovieGrid_SelectionChanged">
+                  GridLinesVisibility="Horizontal" Width="680">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"           Binding="{Binding MovieId}"     Width="80"/>
                 <DataGridTextColumn Header="Title"        Binding="{Binding Title}"        Width="*"/>
