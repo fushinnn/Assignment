@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M79OjJhoCRc=",
+  "dgSpecHash": "cQtWRw5Eh+U=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Loren\\Documents\\Visual Studio Code\\D201\\Assignment\\MovieLibrary.Tests\\MovieLibrary.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Loren\\Desktop\\Assignment VS WPF\\MovieLibrary.Tests\\MovieLibrary.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Loren\\.nuget\\packages\\coverlet.collector\\6.0.4\\coverlet.collector.6.0.4.nupkg.sha512",
     "C:\\Users\\Loren\\.nuget\\packages\\microsoft.codecoverage\\17.14.1\\microsoft.codecoverage.17.14.1.nupkg.sha512",

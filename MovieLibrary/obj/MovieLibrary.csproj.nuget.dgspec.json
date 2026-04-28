@@ -1,29 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Loren\\Documents\\Visual Studio Code\\D201\\Assignment\\MovieLibrary\\MovieLibrary.csproj": {}
+    "C:\\Users\\Loren\\Desktop\\Assignment VS WPF\\MovieLibrary\\MovieLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Loren\\Documents\\Visual Studio Code\\D201\\Assignment\\MovieLibrary\\MovieLibrary.csproj": {
+    "C:\\Users\\Loren\\Desktop\\Assignment VS WPF\\MovieLibrary\\MovieLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Loren\\Documents\\Visual Studio Code\\D201\\Assignment\\MovieLibrary\\MovieLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\Loren\\Desktop\\Assignment VS WPF\\MovieLibrary\\MovieLibrary.csproj",
         "projectName": "MovieLibrary",
-        "projectPath": "C:\\Users\\Loren\\Documents\\Visual Studio Code\\D201\\Assignment\\MovieLibrary\\MovieLibrary.csproj",
+        "projectPath": "C:\\Users\\Loren\\Desktop\\Assignment VS WPF\\MovieLibrary\\MovieLibrary.csproj",
         "packagesPath": "C:\\Users\\Loren\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Loren\\Documents\\Visual Studio Code\\D201\\Assignment\\MovieLibrary\\obj\\",
+        "outputPath": "C:\\Users\\Loren\\Desktop\\Assignment VS WPF\\MovieLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Loren\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Loren\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net10.0-windows"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net10.0-windows7.0": {
+          "net10.0-windows": {
+            "framework": "net10.0-windows7.0",
             "targetAlias": "net10.0-windows",
             "projectReferences": {}
           }
@@ -38,10 +41,11 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
-        "net10.0-windows7.0": {
+        "net10.0-windows": {
+          "framework": "net10.0-windows7.0",
           "targetAlias": "net10.0-windows",
           "imports": [
             "net461",
@@ -62,7 +66,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
