@@ -11,6 +11,8 @@ namespace MovieLibrary.Services
         private readonly MovieLinkedList _movies = new();
         private readonly MovieHashtable _hashtable = new();
         private readonly BorrowQueue _borrowQueue = new();
+        private readonly Dictionary<string, List<string>> _borrowHistory = new();
+
 
 
         //-----CREATE READ UPDATE DELETE-------------------
@@ -127,7 +129,7 @@ namespace MovieLibrary.Services
             }
 
             while (i < left.Count) result.Add(left[i++]);
-            while (j < right.Count) result.Add(left[j++]);
+            while (j < right.Count) result.Add(right[j++]);
             return result;
 
         }
@@ -135,14 +137,22 @@ namespace MovieLibrary.Services
 
         //-----BORROW--------------------------------------
 
-                public string BorrowMovie(string movieId, string userName)
+        public string BorrowMovie(string movieId, string userName)
         {
+
             var movie = _hashtable.Get(movieId);
             if (movie == null) return "Movie not found.";
 
             if (movie.IsAvailable)
             {
                 movie.IsAvailable = false;
+                
+                //History tracking
+                if (!_borrowHistory.ContainsKey(movieId))
+                    _borrowHistory[movieId] = new List<string>();
+                    _borrowHistory[movieId].Add($"{userName} - {DateTime.Now:dd/MM/yy}");
+
+
                 return $"'{movie.Title}' borrowed successfully by {userName}.";
             }
             else
@@ -151,6 +161,11 @@ namespace MovieLibrary.Services
                 int position = _borrowQueue.QueueLength(movieId);
                 return $"'{movie.Title}' is unavailable. {userName} added to queue (position {position}).";
             }
+        }
+
+        public List<string> GetBorrowHistory(string movieId)
+        {
+            return _borrowHistory.TryGetValue(movieId, out var result) ? result : new List<string>();
         }
 
         public string ReturnMovie(string movieId)

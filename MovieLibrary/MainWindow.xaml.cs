@@ -2,7 +2,6 @@
 using MovieLibrary.Services;
 using System.Collections.Generic;
 using System.Windows;
-using MovieLibrary.Services;
 
 namespace MovieLibrary
 {
@@ -135,6 +134,30 @@ namespace MovieLibrary
             MessageBox.Show(result, "Return Movie");
         }
 
+        private void BtnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            if (MovieGrid.SelectedItem is not Movie selected)
+            {
+                SetStatus("Select a movie first.");
+                return;
+            }
+
+            var history = _service.GetBorrowHistory(selected.MovieId);
+
+
+            if (history.Count == 0)
+            {
+                MessageBox.Show("No borrowed history is available for this movie.", "History");
+                return;
+            }
+
+            string historyText = string.Join("\n", history);
+            MessageBox.Show(historyText, $"Borrow History — {selected.Title}");
+            SetStatus($"Showing history for '{selected.Title}'.");
+
+
+        }
+
         // ------Remove------
 
         private void BtnRemove_Click(object sender, RoutedEventArgs e)
@@ -155,11 +178,6 @@ namespace MovieLibrary
             {
                 e.Handled = !int.TryParse(e.Text, out _);
             }
-
-        private void MovieGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-
-        }
 
 
         // ------File Import / Export------
@@ -182,5 +200,7 @@ namespace MovieLibrary
             RefreshGrid(_service.GetAllMovies());
             SetStatus($"Imported {movies.Count} movies.");
         }
+
+
     }
 }

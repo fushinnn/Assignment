@@ -1,0 +1,6 @@
+C:\Users\Loren\Desktop\Assignment VS WPF\MovieLibrary.Tests\obj\Debug\net10.0\MovieLibrary.Tests.csproj.AssemblyReference.cache
+C:\Users\Loren\Desktop\Assignment VS WPF\MovieLibrary.Tests\obj\Debug\net10.0\MovieLibrary.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Loren\Desktop\Assignment VS WPF\MovieLibrary.Tests\obj\Debug\net10.0\MovieLibrary.Tests.AssemblyInfoInputs.cache
+C:\Users\Loren\Desktop\Assignment VS WPF\MovieLibrary.Tests\obj\Debug\net10.0\MovieLibrary.Tests.AssemblyInfo.cs
+C:\Users\Loren\Desktop\Assignment VS WPF\MovieLibrary.Tests\obj\Debug\net10.0\MovieLibrary.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Loren\Desktop\Assignment VS WPF\MovieLibrary.Tests\obj\Debug\net10.0\MovieLibrary.Tests.sourcelink.json
