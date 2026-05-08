@@ -10,13 +10,13 @@ namespace MovieLibrary.DataStructures
         {
             if (!_queues.ContainsKey(movieId))
                 _queues[movieId] = new Queue<string>();
-            _queues[movieId].Enqueue(userName);
+                _queues[movieId].Enqueue(userName);
         }
 
         public string? Dequeue(string movieId)
         {
             if (_queues.TryGetValue(movieId, out var queue) && queue.Count > 0)
-                return queue.Dequeue();
+            return queue.Dequeue();
             return null;
         }
 

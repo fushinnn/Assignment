@@ -39,7 +39,7 @@
                 <TextBlock Text="Genre"    Grid.Column="3" Grid.Row="0" Margin="4,4,4,0" FontWeight="Bold"/>
                 <TextBlock Text="Year"     Grid.Column="4" Grid.Row="0" Margin="4,4,4,0" FontWeight="Bold"/>
 
-                <TextBox x:Name="TxtId"       Grid.Column="0" Grid.Row="1" PreviewTextInput="txtbox_check_Int_Input" Margin="4,4,4,4"/>
+                <TextBox x:Name="TxtId"       Grid.Column="0" Grid.Row="1" Margin="4,4,4,4"/>
                 <TextBox x:Name="TxtTitle"    Grid.Column="1" Grid.Row="1" Margin="4,4,4,4"/>
                 <TextBox x:Name="TxtDirector" Grid.Column="2" Grid.Row="1" Margin="4,4,4,4"/>
                 <TextBox x:Name="TxtGenre"    Grid.Column="3" Grid.Row="1" Margin="4,4,4,4"/>
