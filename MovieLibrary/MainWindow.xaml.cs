@@ -27,14 +27,14 @@ namespace MovieLibrary
 
         private void LoadSampleData()
         {
-            _service.AddMovie(new Movie("1", "Inception",          "Christopher Nolan", "Sci-Fi",    2010));
-            _service.AddMovie(new Movie("2", "The Matrix",         "Wachowski Sisters", "Sci-Fi",    1999));
-            _service.AddMovie(new Movie("3", "Interstellar",       "Christopher Nolan", "Sci-Fi",    2014));
-            _service.AddMovie(new Movie("4", "Parasite",           "Bong Joon-ho",      "Thriller",  2019));
-            _service.AddMovie(new Movie("5", "The Dark Knight",    "Christopher Nolan", "Action",    2008));
-            _service.AddMovie(new Movie("6", "Spirited Away",      "Hayao Miyazaki",    "Animation", 2001));
-            _service.AddMovie(new Movie("7", "Pulp Fiction",       "Quentin Tarantino", "Crime",     1994));
-            _service.AddMovie(new Movie("8", "Mad Max: Fury Road", "George Miller",     "Action",    2015));
+            _service.AddMovie(new Movie("M001", "Inception",          "Christopher Nolan", "Sci-Fi",    2010));
+            _service.AddMovie(new Movie("M002", "The Matrix",         "Wachowski Sisters", "Sci-Fi",    1999));
+            _service.AddMovie(new Movie("M003", "Interstellar",       "Christopher Nolan", "Sci-Fi",    2014));
+            _service.AddMovie(new Movie("M004", "Parasite",           "Bong Joon-ho",      "Thriller",  2019));
+            _service.AddMovie(new Movie("M005", "The Dark Knight",    "Christopher Nolan", "Action",    2008));
+            _service.AddMovie(new Movie("M006", "Spirited Away",      "Hayao Miyazaki",    "Animation", 2001));
+            _service.AddMovie(new Movie("M007", "Pulp Fiction",       "Quentin Tarantino", "Crime",     1994));
+            _service.AddMovie(new Movie("M008", "Mad Max: Fury Road", "George Miller",     "Action",    2015));
         }
 
         // ------Add------
@@ -134,6 +134,30 @@ namespace MovieLibrary
             MessageBox.Show(result, "Return Movie");
         }
 
+        private void BtnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            if (MovieGrid.SelectedItem is not Movie selected)
+            {
+                SetStatus("Select a movie first.");
+                return;
+            }
+
+            var history = _service.GetBorrowHistory(selected.MovieId);
+
+
+            if (history.Count == 0)
+            {
+                MessageBox.Show("No borrowed history is available for this movie.", "History");
+                return;
+            }
+
+            string historyText = string.Join("\n", history);
+            MessageBox.Show(historyText, $"Borrow History — {selected.Title}");
+            SetStatus($"Showing history for '{selected.Title}'.");
+
+
+        }
+
         // ------Remove------
 
         private void BtnRemove_Click(object sender, RoutedEventArgs e)
@@ -155,9 +179,28 @@ namespace MovieLibrary
                 e.Handled = !int.TryParse(e.Text, out _);
             }
 
-        private void MovieGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
 
+        // ------File Import / Export------
+        private void BtnExport_Click(object sender, RoutedEventArgs e)
+        {
+            FileService.ExportMovies(_service.GetAllMovies());
+            SetStatus("Movie list exported.");
         }
+
+        private void BtnImport_Click(object sender, RoutedEventArgs e)
+        {
+            var movies = FileService.ImportMovies();
+            if (movies == null) { 
+                SetStatus("Import cancelled or file not found."); 
+                return; }
+
+            foreach (var movie in movies)
+                _service.AddMovie(movie);
+
+            RefreshGrid(_service.GetAllMovies());
+            SetStatus($"Imported {movies.Count} movies.");
+        }
+
+
     }
 }

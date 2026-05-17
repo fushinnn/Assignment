@@ -1,4 +1,4 @@
-using System.Windows.Media.Animation;
+using System.Collections.Generic;
 
 namespace MovieLibrary.DataStructures
 {
@@ -9,20 +9,21 @@ namespace MovieLibrary.DataStructures
         public void Enqueue(string movieId, string userName)
         {
             if (!_queues.ContainsKey(movieId))
-            _queues[movieId] = new Queue<string>();
-            _queues[movieId].Enqueue(userName);
+                _queues[movieId] = new Queue<string>();
+                _queues[movieId].Enqueue(userName);
         }
 
-        public string Dequeue(string movieId)
+        public string? Dequeue(string movieId)
         {
-            if (!_queues.TryGetValue(movieId, out var queue) && queue.Count > 0)
+            if (_queues.TryGetValue(movieId, out var queue) && queue.Count > 0)
             return queue.Dequeue();
             return null;
         }
 
-        public bool HasQueue(string movieId) => _queues.TryGetValue(movieId, out var q) && q.Count > 0;
+        public bool HasQueue(string movieId) =>
+            _queues.TryGetValue(movieId, out var q) && q.Count > 0;
 
-        public int QueueLength(string movieId) => _queues.TryGetValue(movieId, out var q) ? q.Count : 0;
-
+        public int QueueLength(string movieId) =>
+            _queues.TryGetValue(movieId, out var q) ? q.Count : 0;
     }
 }
